@@ -145,7 +145,7 @@ Special Thanks to Niema Moshiri, Christine Alvarado, and Paul Kube for creating 
 
 ### Submitting Your PA
 
-You will be submitting your code using Gradescope through Github submission option. You should have gotten enrolled in Gradescope by now (if not, please add your name to the appropriate edstem post). You should also be able to make **private** repositories on Github.
+You can drag and drop your files or submit your code using Gradescope through Github submission option. You should have gotten enrolled in Gradescope by now (if not, please add your name to the appropriate edstem post). You should also be able to make **private** repositories on Github.
 
 Instructions to submit your code on GradeScope:
 
