@@ -13,7 +13,9 @@ class BSTNode {
 		 *  no parent, and no children.
 		 *  TODO
 		 */
-		BSTNode(const Data & d) {}
+		BSTNode(const Data & d):
+		data(d), left(nullptr), right(nullptr), parent(nullptr)
+		{}
 
 		BSTNode<Data>* left;
 		BSTNode<Data>* right;
@@ -27,7 +29,25 @@ class BSTNode {
 		 *  or 0 if there is none. TODO
 		 */
 		BSTNode<Data>* successor() {
-			return 0;
+			BSTNode<Data>* current;
+			if(this.right != nullptr){
+				current = this.right;
+				while(current->left != nullptr){
+					current = current->left;
+				}
+				return current;
+			}
+			else{
+				current = this;
+				while(current->parent != nullptr){
+					if(current == current->parent->left){
+						return current->parent;
+					}
+					else{
+						current = current->parent;
+					}
+				return nullptr;
+			}
 		}
 
 }; 
