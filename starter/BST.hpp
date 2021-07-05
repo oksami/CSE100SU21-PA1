@@ -46,8 +46,35 @@ class BST {
        *  behind this, see the assignment writeup.
        *  TODO
        */
-      virtual bool insert(const Data& item) {
-         return false;
+      virtual bool insert(const Data& item) {	//item is a reference to a Data type constant
+        	if(this.empty() == true){			//empty tree so item will be root
+		this.root = item;
+		isize = isize + 1;
+		return true;
+	BSTNode<Data>* current = this.root;	//start at root
+	while( current->data != item ){		//am I supposed to use the iterator class' != operator here?
+		if( (item < current->data) == true){
+			if(current->left == nullptr){	//if no left child exists, insert item as left child
+				current->left = item;
+				isize = isize + 1;
+				return true;
+			}
+			else{				//if left child exists, traverse left
+				current = current->left;
+			}
+		}
+		else if( (item < current->data) == false){	
+			if(current->right == nullptr){	//if no right child exists, insert item as right child
+				current->right = item;
+				isize = isize + 1;
+				return true;
+			}
+			else{				//if right child exists, traverse right
+				current = current->right;
+			}
+		}
+	}
+	return false;				//only reach here if current == item, and cannot have duplicates
       }
 
 
