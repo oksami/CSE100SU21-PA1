@@ -87,7 +87,17 @@ class BST {
        *  TODO
        */
       virtual iterator find(const Data& item) const {
-         return 0; 
+      	BSTNode<Data>* current = this.root;
+	while( current != item){
+		if( item < current){		//if item < current, traverse left
+			current = current->left;
+		}
+		else if( current < item ){	//if current < item, traverse right
+			current = current->right;
+		}
+		return current;
+	}
+	return this.end();			//return past last node if not found
       }
 
 
@@ -95,7 +105,7 @@ class BST {
        *  TODO 
        */
       unsigned int size() const {
-         return 0;
+         return isize;
       }
 
       /** Return the height of the BST.
@@ -104,7 +114,7 @@ class BST {
        *  TODO  
        */
       unsigned int height() const {
-         return 0;
+         return iheight;
       }
 
 
