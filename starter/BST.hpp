@@ -147,6 +147,11 @@ class BST {
        * TODO
        */
       void inorder() const {
+	if( this.root == nullptr) return;
+	this.root->left.inorder();
+	std::cout<<this.root->data<<std::endl;
+	this.root->right.inorder();
+	
       }
 
 
@@ -156,7 +161,10 @@ class BST {
        *  TODO 
        */ 
       static BSTNode<Data>* first(BSTNode<Data>* root) {
-         return 0;
+	if( root == nullptr ) return nullptr;
+	while( root->left != nullptr)
+		root = root->left;
+	return root;
       }
 
       /** do a postorder traversal, deleting nodes
@@ -169,7 +177,12 @@ class BST {
             recursively delete right sub-tree
             delete current node
             */
-      }
+      	if( n == nullptr) return;		//if current node is null: return;
+	deleteAll(n->left);		//recursively delete left sub-tree
+	deleteAll(n->right);		//recursively delete right sub-tree
+	delete n;			//delete current node
+		
+	}
 
 
 };
