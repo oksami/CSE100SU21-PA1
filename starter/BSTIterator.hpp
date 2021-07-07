@@ -45,14 +45,14 @@ class BSTIterator : public iterator<input_iterator_tag,Data> {
        * TODO */
       bool operator==(BSTIterator<Data> const & other) const {
 
-         return false;
+         return curr == other.curr;
 
       }
 
       /** Inequality test operator. TODO */
       bool operator!=(BSTIterator<Data> const & other) const {
 
-         return false;
+         return curr != other.curr;
 
       }
 
