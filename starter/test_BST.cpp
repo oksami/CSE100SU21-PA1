@@ -45,7 +45,7 @@ int main() {
 
 	cout << "Size is: " << b.size() << endl;
 	if(b.size() != v.size()) {
-		cout << "... which is incorrect because it is actually" << v.size() << endl;
+		cout << "... which is incorrect." << endl;
 		return -1;
 	}
 
@@ -53,7 +53,7 @@ int main() {
 
 	cout << "Height is: " << b.height() << endl;
 	if(b.height() != 2) {
-		cout << "... which is incorrect because it is actually 2" << endl;
+		cout << "... which is incorrect." << endl;
 		return -1;
 	}
 

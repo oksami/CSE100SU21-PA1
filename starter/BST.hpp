@@ -27,7 +27,7 @@ class BST {
       /** Default constructor.
         * Initialize an empty BST.
         */
-      BST() : root(0), isize(0), iheight(0) {  }
+      BST() : root(0), isize(0), iheight(-1) {  }
 
 
       /** Default destructor.
@@ -51,7 +51,7 @@ class BST {
 	if(empty() == true){			//empty tree so item will be root
 		this->root = new BSTNode<Data>(item);
 		isize = isize + 1;
-		iheight = dummy + 1;
+		iheight = 0;
 		return true;
 	}
 	BSTNode<Data>* current = this->root;	//start at root
@@ -61,7 +61,7 @@ class BST {
 				current->left = new BSTNode<Data>(item);
 				current->left->parent = current;
 				dummy++;
-				return true;
+				break; //return true;
 			}
 			else{				//if left child exists, traverse left
 				current = current->left;
@@ -73,14 +73,14 @@ class BST {
 				current->right = new BSTNode<Data>(item);
 				current->right->parent = current;
 				dummy++;
-				return true;
+				break; //return true;
 			}
 			else{				//if right child exists, traverse right
 				current = current->right;
 				dummy++;
 			}
 		}
-		return false;				//only reach here if current == item, and cannot have duplicates
+		else return false;				//only reach here if current == item, and cannot have duplicates
 	}
 	if( iheight<dummy) iheight=dummy;
 	isize++;
@@ -177,9 +177,9 @@ class BST {
 	return root;
       }
 
-      /** do a postorder traversal, deleting nodes
-       *   TODO 	
-       */
+      //** do a postorder traversal, deleting nodes
+      // *   TODO 	
+       
       static void deleteAll(BSTNode<Data>* n) {
          /* Pseudo Code:
             if current node is null: return;
