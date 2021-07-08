@@ -40,7 +40,7 @@ int main() {
 		}
 	}
 
-
+	
 	/* Test size. */
 
 	cout << "Size is: " << b.size() << endl;
