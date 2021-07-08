@@ -47,16 +47,16 @@ class BST {
        *  TODO
        */
       virtual bool insert(const Data& item) {	//item is a reference to a Data type constant
-        	if(this.empty() == true){			//empty tree so item will be root
-		this.root = item;
+        	if(empty() == true){			//empty tree so item will be root
+		this->root = new BSTNode<Data> item;
 		isize = isize + 1;
 		return true;
 	}
-	BSTNode<Data>* current = this.root;	//start at root
+	BSTNode<Data>* current = this->root;	//start at root
 	while( current->data != item ){		//am I supposed to use the iterator class' != operator here?
 		if( (item < current->data) == true){
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
-				current->left = item;
+				current->left = new BSTNode<Data> item;
 				isize = isize + 1;
 				return true;
 			}
@@ -66,7 +66,7 @@ class BST {
 		}
 		else if( (item < current->data) == false){	
 			if(current->right == nullptr){	//if no right child exists, insert item as right child
-				current->right = item;
+				current->right = new BSTNode<Data> item;
 				isize = isize + 1;
 				return true;
 			}
@@ -88,7 +88,7 @@ class BST {
        *  TODO
        */
       virtual iterator find(const Data& item) const {
-      	BSTNode<Data>* current = this.root;
+      	BSTNode<Data>* current = this->root;
 	while( current != item){
 		if( item < current){		//if item < current, traverse left
 			current = current->left;
@@ -98,7 +98,7 @@ class BST {
 		}
 		return current;
 	}
-	return this.end();			//return past last node if not found
+	return end();			//return past last node if not found
       }
 
 
@@ -148,10 +148,10 @@ class BST {
        * TODO
        */
       void inorder() const {
-	if( this.root == nullptr) return;
-	this.root->left.inorder();
-	std::cout<<this.root->data<<std::endl;
-	this.root->right.inorder();
+	if( this->root == nullptr) return;
+	this->root->left.inorder();
+	std::cout<<this->root->data<<std::endl;
+	this->root->right.inorder();
 	
       }
 
