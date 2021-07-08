@@ -51,6 +51,7 @@ class BST {
 		this.root = item;
 		isize = isize + 1;
 		return true;
+	}
 	BSTNode<Data>* current = this.root;	//start at root
 	while( current->data != item ){		//am I supposed to use the iterator class' != operator here?
 		if( (item < current->data) == true){
