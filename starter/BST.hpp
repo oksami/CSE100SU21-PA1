@@ -50,6 +50,7 @@ class BST {
         	if(empty() == true){			//empty tree so item will be root
 		this->root = new BSTNode<Data>(item);
 		isize = isize + 1;
+		iheight++;
 		return true;
 	}
 	BSTNode<Data>* current = this->root;	//start at root
@@ -58,6 +59,7 @@ class BST {
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
 				current->left = new BSTNode<Data>(item);
 				isize = isize + 1;
+				iheight++;
 				return true;
 			}
 			else{				//if left child exists, traverse left
@@ -68,6 +70,7 @@ class BST {
 			if(current->right == nullptr){	//if no right child exists, insert item as right child
 				current->right = new BSTNode<Data>(item);
 				isize = isize + 1;
+				iheight++;
 				return true;
 			}
 			else{				//if right child exists, traverse right
