@@ -13,9 +13,9 @@ class BSTNode {
 		 *  no parent, and no children.
 		 *  TODO
 		 */
-		BSTNode(const Data & d):
-		data(d), left(nullptr), right(nullptr), parent(nullptr)
-		{}
+		BSTNode(const Data & d):data(d){
+			right=left=parent=0;
+		}
 
 		BSTNode<Data>* left;
 		BSTNode<Data>* right;
