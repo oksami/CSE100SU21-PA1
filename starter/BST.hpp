@@ -90,7 +90,7 @@ class BST {
       virtual iterator find(const Data& item) const {
       	BSTNode<Data>* current = this->root;
 	while( current->data != item){
-		if( item < current){		//if item < current, traverse left
+		if( item < current->data){		//if item < current, traverse left
 			current = current->left;
 		}
 		else if( current < item ){	//if current < item, traverse right
