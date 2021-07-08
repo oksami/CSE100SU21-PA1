@@ -49,12 +49,12 @@ class BST {
       virtual bool insert(const Data& item) {	//item is a reference to a Data type constant
         	int dummy = 0;
 	if(empty() == true){			//empty tree so item will be root
-		this->root = new BSTNode<Data>(item);
+		root = new BSTNode<Data>(item);
 		isize = isize + 1;
 		iheight = 0;
 		return true;
 	}
-	BSTNode<Data>* current = this->root;	//start at root
+	BSTNode<Data>* current = root;	//start at root
 	while( current->data != item && current != nullptr){		//am I supposed to use the iterator class' != operator here?
 		if( (item < current->data) == true){
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
@@ -97,7 +97,7 @@ class BST {
        *  TODO
        */
       virtual iterator find(const Data& item) const {
-      	BSTNode<Data>* current = this->root;
+      	BSTNode<Data>* current = root;
 	while( current->data != item && current != nullptr){
 		if( item < current->data){		//if item < current, traverse left
 			current = current->left;
@@ -157,10 +157,10 @@ class BST {
        * TODO
        */
       void inorder() const {
-	if( this->root == nullptr) return;
-	this->root->left.inorder();
-	std::cout<<this->root->data<<std::endl;
-	this->root->right.inorder();
+	if( root == nullptr) return;
+	root->left.inorder();
+	std::cout<<root->data<<std::endl;
+	root->right.inorder();
 	
       }
 
