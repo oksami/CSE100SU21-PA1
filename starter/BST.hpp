@@ -47,10 +47,11 @@ class BST {
        *  TODO
        */
       virtual bool insert(const Data& item) {	//item is a reference to a Data type constant
-        	if(empty() == true){			//empty tree so item will be root
+        	int dummy = 0;
+	if(empty() == true){			//empty tree so item will be root
 		this->root = new BSTNode<Data>(item);
 		isize = isize + 1;
-		iheight++;
+		iheight = dummy + 1;
 		return true;
 	}
 	BSTNode<Data>* current = this->root;	//start at root
@@ -58,27 +59,32 @@ class BST {
 		if( (item < current->data) == true){
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
 				current->left = new BSTNode<Data>(item);
-				isize = isize + 1;
-				iheight++;
+				current->left->parent = current;
+				dummy++;
 				return true;
 			}
 			else{				//if left child exists, traverse left
 				current = current->left;
+				dummy++;
 			}
 		}
 		else if( (item < current->data) == false){	
 			if(current->right == nullptr){	//if no right child exists, insert item as right child
 				current->right = new BSTNode<Data>(item);
-				isize = isize + 1;
-				iheight++;
+				current->right->parent = current;
+				dummy++;
 				return true;
 			}
 			else{				//if right child exists, traverse right
 				current = current->right;
+				dummy++;
 			}
 		}
+		return false;				//only reach here if current == item, and cannot have duplicates
 	}
-	return false;				//only reach here if current == item, and cannot have duplicates
+	if( iheight<dummy) iheight=dummy;
+	isize++;
+	return true;
       }
 
 
