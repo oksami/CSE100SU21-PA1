@@ -55,7 +55,7 @@ class BST {
 		return true;
 	}
 	BSTNode<Data>* current = this->root;	//start at root
-	while( current->data != item ){		//am I supposed to use the iterator class' != operator here?
+	while( current->data != item && current != nullptr){		//am I supposed to use the iterator class' != operator here?
 		if( (item < current->data) == true){
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
 				current->left = new BSTNode<Data>(item);
@@ -98,7 +98,7 @@ class BST {
        */
       virtual iterator find(const Data& item) const {
       	BSTNode<Data>* current = this->root;
-	while( current->data != item){
+	while( current->data != item && current != nullptr){
 		if( item < current->data){		//if item < current, traverse left
 			current = current->left;
 		}
