@@ -93,7 +93,7 @@ class BST {
 		if( item < current->data){		//if item < current, traverse left
 			current = current->left;
 		}
-		else if( current < item ){	//if current < item, traverse right
+		else if( current->data < item ){	//if current < item, traverse right
 			current = current->right;
 		}
 		return current;
