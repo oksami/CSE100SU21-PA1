@@ -48,7 +48,7 @@ class BST {
        */
       virtual bool insert(const Data& item) {	//item is a reference to a Data type constant
         	if(empty() == true){			//empty tree so item will be root
-		this->root = new BSTNode<Data> item;
+		this->root = new BSTNode<Data>(item);
 		isize = isize + 1;
 		return true;
 	}
@@ -56,7 +56,7 @@ class BST {
 	while( current->data != item ){		//am I supposed to use the iterator class' != operator here?
 		if( (item < current->data) == true){
 			if(current->left == nullptr){	//if no left child exists, insert item as left child
-				current->left = new BSTNode<Data> item;
+				current->left = new BSTNode<Data>(item);
 				isize = isize + 1;
 				return true;
 			}
@@ -66,7 +66,7 @@ class BST {
 		}
 		else if( (item < current->data) == false){	
 			if(current->right == nullptr){	//if no right child exists, insert item as right child
-				current->right = new BSTNode<Data> item;
+				current->right = new BSTNode<Data>(item);
 				isize = isize + 1;
 				return true;
 			}
