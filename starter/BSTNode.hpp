@@ -31,7 +31,7 @@ class BSTNode {
 		BSTNode<Data>* successor() {
 			BSTNode<Data>* current;
 			if(this.right != nullptr){
-				current = this.right;
+				current = right;
 				while(current->left != nullptr){
 					current = current->left;
 				}
